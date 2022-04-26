@@ -1,0 +1,20 @@
+{"data": [
+    {
+        "id": "1000",
+        "name": "Tim David",
+        "email": "tim@yopmail.com",
+        "phone": "+9264841911",
+        "caption": "Sales Team"
+    },
+    {
+        "id": "1002",
+        "name": "JaneDoe",
+        "email": "janeed@yopmail.com",
+        "phone": "+9264841911",
+        "caption": "Testing Team"
+    }
+ 
+   
+    
+]
+}

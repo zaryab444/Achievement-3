@@ -1,1 +1,18 @@
-<p>user-list works!</p>
+
+<div class="admin-page">
+    <h3>Users</h3>
+    <p-card>
+  <div class="grid col-3">
+      <p-card class="subcard" *ngFor="let user of getData">
+     
+        <div >
+            <b>{{user.name}}</b>
+            <!-- <p> <i class="pi pi-user"></i> david@yopmail.com</p>
+             <p><i class="pi pi-phone"> +9236848184</i></p>
+             <p><i class="pi pi-users"></i> Sales Teams</p> -->
+         </div>
+   
+      </p-card>
+  </div>
+    </p-card>
+</div>
