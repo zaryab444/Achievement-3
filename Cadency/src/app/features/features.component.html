@@ -1,0 +1,19 @@
+<!-- load the header from common component -->
+<app-header></app-header>
+<!-- load side navigation from common component -->
+<app-side-navigation></app-side-navigation>
+<div class="main-body-content">
+    <!-- add bread crumbs for current page -->
+    <div class="body">
+        <!-- <app-breadcrumb></app-breadcrumb> -->
+    </div>
+
+    <div class="page-content">
+        <!-- render page content for each page -->
+        
+        <router-outlet></router-outlet>
+    </div>
+</div>
+
+<!-- load footer from common component -->
+<app-footer></app-footer>

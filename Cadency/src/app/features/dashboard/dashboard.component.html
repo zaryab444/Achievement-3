@@ -1,0 +1,94 @@
+<div class="grid">
+      <div class="col-3">
+          <p-card [style]="{'width': '18rem', 'margin-bottom': '2em'}">
+              <div class="user">
+            <i class="pi pi-users" style="  font-size: 2em;"></i>
+        </div>
+            <div style="text-align: center">
+                <h3>Total Users</h3>
+             <p style="font-weight: 700; color: black;">1,423</p>
+            </div>
+          </p-card>
+      </div>
+      
+      <div class="col-3">
+        <p-card [style]="{'width': '18rem', 'margin-bottom': '2em'}">
+            <div class="invoice">
+          <i class="pi pi-money-bill" style="  font-size: 2em;"></i>
+      </div>
+          <div style="text-align: center;">
+              <h3>Total Teams</h3>
+              <p style="font-weight: 700; color: black; ">1,423</p>
+          </div>
+        </p-card>
+    </div>
+    <div class="col-3">
+        <p-card [style]="{'width': '18rem', 'margin-bottom': '2em'}">
+            <div class="customer">
+          <i class="pi pi-money-bill" style="  font-size: 2em;"></i>
+      </div>
+          <div style="text-align: center;">
+              <h3>Total Entities</h3>
+              <p style="font-weight: 700; color: black;">1,423</p>
+          </div>
+        </p-card>
+    </div>
+
+    <div class="col-3">
+        <p-card [style]="{'width': '18rem', 'margin-bottom': '2em'}">
+            <div class="payment">
+          <i class="pi pi-dollar" style="  font-size: 2em;"></i>
+      </div>
+          <div style="text-align: center;">
+              <h3>Pending Customers </h3>
+              <p style="font-weight: 700; color: black;">$1,423</p>
+              
+          </div>
+        </p-card>
+    </div>
+
+
+    </div>
+
+
+
+    <!-- bar chart work here  -->
+    <div class="grid">
+        <div class="col-6">
+    <div class="card">
+        <h2>Customer Chart</h2>
+        <p-chart type="bar" [data]="basicData" [options]="basicOptions"></p-chart>
+    </div>
+</div>
+
+<div class="col-6">
+    <div>
+        <h2>Activity Logs</h2>
+        <p-timeline [value]="event1"  styleClass="customized-timeline">
+            <ng-template pTemplate="marker" let-event>
+                <span class="custom-marker p-shadow-2" [style.backgroundColor]="event.color">
+                    <i [ngClass]="event.icon"></i>
+                </span>
+            </ng-template>
+            <ng-template pTemplate="content" let-event>
+                <p>{{event.date}}</p>
+                <h3>{{event.status}}</h3>
+                <p>{{event.user}}</p>
+            
+            </ng-template>
+        </p-timeline>
+    </div>
+    
+    
+</div>
+
+</div>
+
+
+
+
+
+
+
+
+

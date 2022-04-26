@@ -1,0 +1,23 @@
+<p-table #table [value]="getData">
+    <ng-template pTemplate="header">
+        <tr>
+            <th>Batch Number</th>
+            <th>UserName</th>
+            <th>Description</th>
+            <th>Status</th>
+        </tr>
+    </ng-template>
+
+    <ng-template pTemplate="body" let-rowData  let-columns="columns" >
+        <tr>
+            <td>{{rowData.code}}</td>
+            
+            <td>{{rowData.name}}</td>
+            <td>{{rowData.description}}</td>
+            <td>{{rowData.inventoryStatus}}</td>
+           
+        </tr>
+
+    </ng-template>
+
+</p-table>

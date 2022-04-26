@@ -1,0 +1,34 @@
+.user{
+    text-align: center;
+    color: red;
+  
+
+   
+}
+
+.invoice{
+    text-align: center;
+    color: purple;
+}
+.customer{
+    text-align: center;
+    color: greenyellow;
+}
+
+
+.payment{
+    text-align: center;
+    color: rgb(128, 68, 0);
+}
+
+.custom-marker {
+    display: flex;
+    width: 2rem;
+    height: 2rem;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    border-radius: 50%;
+    z-index: 1;
+  }
+  

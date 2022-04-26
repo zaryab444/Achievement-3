@@ -1,0 +1,42 @@
+<p-sidebar [showCloseIcon]="false" [(visible)]="visibleSidebar1" [baseZIndex]="10000">
+    <h2 style="font-weight:normal">Cadency</h2>
+    <div class="links">
+      <ul>
+        
+        <li>
+          <a routerLink="/dashboard" (click)="visibleSidebar1 = false"><i class="pi pi-home"></i>Dashboard</a>
+         <div class="dropdown">
+         <a style="cursor: pointer;" ><i class="pi pi-briefcase"></i>Customer & Receivables</a>
+         <div class="dropdown-content" style="left:0;">
+          <a routerLink="/customer"  (click)="visibleSidebar1 = false">Customer</a>
+          <a routerLink="/invoice" (click)="visibleSidebar1 = false" >Invoices</a>
+          <a routerLink="/recurring-invoice" (click)="visibleSidebar1 = false">Recurring Invoices</a>
+          <a >Customer Payments</a>
+        </div>
+      </div>
+      <div class="dropdown">
+      <a style="cursor: pointer;"><i class="pi pi-book"></i>User Access Control</a>
+      <div class="dropdown-content" style="left:0;">
+         <a (click)="visibleSidebar1 = false">Manage Users</a>
+         <a (click)="visibleSidebar1 = false">ManageTeams</a>
+      </div>
+    </div>
+
+
+
+
+      <a (click)="visibleSidebar1 = false"><i class="pi pi-calendar-minus"></i>Task and Activities</a>
+      <a (click)="visibleSidebar1 = false"><i class="pi pi-envelope"></i>Documents</a>
+      <a (click)="visibleSidebar1 = false"><i class="pi pi-slack"></i>Reports</a>
+        </li>
+      </ul>
+
+    </div>
+
+  
+
+</p-sidebar>
+
+<div class="col-2">
+<i (click)="visibleSidebar1 = true" class="pi pi-bars" style="font-size: 1.5rem"></i>
+</div>
