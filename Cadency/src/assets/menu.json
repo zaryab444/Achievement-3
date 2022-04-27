@@ -1,18 +1,49 @@
 [{
     "text": "Dashboard",
-    "icon": "briefcase",
+    "icon": "",
     "routerLink": "/dashboard"
 },
 
 {
     "text": "Customer & Receivable",
-    "children": [{
+    "children": [
+        {
         "text": "Customer",
-        "icon": "customer",
+        "icon": "",
         "routerLink": "/customer"
+        },
+        {
+            "text": "Invoice",
+            "icon": ""
+           
+        },
+        {
+            "text": "Recurring Invoices",
+            "icon": ""
+           
+        },
+        {
+            "text":"Customer Payments",
+            "icon":""
         }
+
     
+
         
+    ]
+},
+{
+    "text":"User Access Control",
+    "children":[
+        {
+          "text":"Manage Users",
+          "icon":"",
+          "routerLink":"/user"
+        },
+        {
+            "text":"Manage Teams",
+            "icon":""
+        }
     ]
 }
 

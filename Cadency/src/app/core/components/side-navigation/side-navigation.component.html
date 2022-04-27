@@ -45,23 +45,23 @@
       </li>
   </ng-template>
 </ul>
-</div>
+
 <ng-template #childMenu let-menu="menu">
   
   
-    <div class="dropdown">
-    <i  style="font-size: 1.5rem">{{menu.icon}}</i>{{menu.text}}
-    <div class="dropdown-content" style="left:0;">
+    <div class="dropdown" style="cursor: pointer; " >
+    <i  style="font-size: 1.5rem; ">{{menu.icon}}</i> {{menu.text}}
+    <div class="dropdown-content " style="left:0;">
     <ul>
       <li  (click)="visibleSidebar1 = false" [routerLink]="submenu.routerLink" *ngFor="let submenu of menu.children" routerLinkActive="is-active" [routerLinkActiveOptions]="{exact:
         true}">
-        <i  >{{submenu.icon}}</i> {{submenu.text}}
+        <i>{{submenu.icon}}</i> {{submenu.text}}
       </li>
     </ul>
 </div>
     </div>
 </ng-template>
-
+</div>
 </p-sidebar>
 
 

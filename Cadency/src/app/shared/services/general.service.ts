@@ -18,9 +18,10 @@ export class GeneralService {
 }
 
 
-getList<T>(){
-  return this.http.get<T[]>("/assets/menu.json");
-}
+//map the list of dashboard data
+  getList<T>(){
+    return this.http.get<T[]>("/assets/menu.json");
+   }
 
 
 }

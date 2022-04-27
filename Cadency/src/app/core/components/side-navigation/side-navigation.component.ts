@@ -15,10 +15,7 @@ export class SideNavigationComponent implements OnInit {
   constructor(private generalServie: GeneralService) { }
 
   ngOnInit(): void {
-
-  
- 
-    this.getDashboardData();
+     this.getDashboardData();
   
   }
 
