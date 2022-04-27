@@ -7,7 +7,7 @@
           <a routerLink="/dashboard" (click)="visibleSidebar1 = false"><i class="pi pi-home"></i>Dashboard</a>
          <div class="dropdown">
          <a style="cursor: pointer;" ><i class="pi pi-briefcase"></i>Customer & Receivables</a>
-         <div class="dropdown-content" style="left:0;">
+         <div class="dropdown-content">
           <a routerLink="/customer"  (click)="visibleSidebar1 = false">Customer</a>
           <a routerLink="/invoice" (click)="visibleSidebar1 = false" >Invoices</a>
           <a routerLink="/recurring-invoice" (click)="visibleSidebar1 = false">Recurring Invoices</a>
@@ -29,14 +29,15 @@
       <a (click)="visibleSidebar1 = false"><i class="pi pi-envelope"></i>Documents</a>
       <a (click)="visibleSidebar1 = false"><i class="pi pi-slack"></i>Reports</a>
         </li>
-      </ul> -->
+      </ul>
+    </div> -->
      <ul>
       <ng-container *ngFor="let menu of menuList | async; index as i;">
         <ng-container [ngTemplateOutlet]="menu.children ?  childMenu : parentMenu"
             [ngTemplateOutletContext]="{menu:menu}">
         </ng-container>
     </ng-container>
-   
+ 
     <ng-template #parentMenu let-menu="menu">
       <li (click)="visibleSidebar1 = false" style="cursor: pointer;" [routerLink]="menu.routerLink" routerLinkActive="is-active" [routerLinkActiveOptions]="{exact:
           true}">
@@ -46,18 +47,21 @@
 </ul>
 </div>
 <ng-template #childMenu let-menu="menu">
-  <div class="col-2">
   
+  
+    <div class="dropdown">
     <i  style="font-size: 1.5rem">{{menu.icon}}</i>{{menu.text}}
+    <div class="dropdown-content" style="left:0;">
     <ul>
-      <li   [routerLink]="submenu.routerLink" *ngFor="let submenu of menu.children" routerLinkActive="is-active" [routerLinkActiveOptions]="{exact:
+      <li  (click)="visibleSidebar1 = false" [routerLink]="submenu.routerLink" *ngFor="let submenu of menu.children" routerLinkActive="is-active" [routerLinkActiveOptions]="{exact:
         true}">
         <i  >{{submenu.icon}}</i> {{submenu.text}}
       </li>
     </ul>
-
+</div>
     </div>
 </ng-template>
+
 </p-sidebar>
 
 

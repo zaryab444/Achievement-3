@@ -3,10 +3,18 @@
     "icon": "briefcase",
     "routerLink": "/dashboard"
 },
+
 {
-    "text": "Customer",
-    "icon": "briefcase",
-    "routerLink": "/customer"
+    "text": "Customer & Receivable",
+    "children": [{
+        "text": "Customer",
+        "icon": "customer",
+        "routerLink": "/customer"
+        }
+    
+        
+    ]
 }
+
 
 ]
