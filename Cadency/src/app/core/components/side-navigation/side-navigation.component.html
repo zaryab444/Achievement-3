@@ -1,7 +1,7 @@
 <p-sidebar [showCloseIcon]="false" [(visible)]="visibleSidebar1" [baseZIndex]="10000">
     <h2 style="font-weight:normal">Cadency</h2>
     <div class="links">
-      <ul>
+      <!-- <ul>
         
         <li>
           <a routerLink="/dashboard" (click)="visibleSidebar1 = false"><i class="pi pi-home"></i>Dashboard</a>
@@ -29,14 +29,40 @@
       <a (click)="visibleSidebar1 = false"><i class="pi pi-envelope"></i>Documents</a>
       <a (click)="visibleSidebar1 = false"><i class="pi pi-slack"></i>Reports</a>
         </li>
-      </ul>
+      </ul> -->
+     <ul>
+      <ng-container *ngFor="let menu of menuList | async; index as i;">
+        <ng-container [ngTemplateOutlet]="menu.children ?  childMenu : parentMenu"
+            [ngTemplateOutletContext]="{menu:menu}">
+        </ng-container>
+    </ng-container>
+   
+    <ng-template #parentMenu let-menu="menu">
+      <li [routerLink]="menu.routerLink" routerLinkActive="is-active" [routerLinkActiveOptions]="{exact:
+          true}">
+          <i>{{menu.icon}}</i> {{menu.text}}
+      </li>
+  </ng-template>
+</ul>
+</div>
+<ng-template #childMenu let-menu="menu">
+  <div class="col-2">
+  
+    <i (click)="visibleSidebar1 = true" style="font-size: 1.5rem">{{menu.icon}}</i>{{menu.text}}
+    <ul>
+      <li [routerLink]="submenu.routerLink" *ngFor="let submenu of menu.children" routerLinkActive="is-active" [routerLinkActiveOptions]="{exact:
+        true}">
+        <i>{{submenu.icon}}</i> {{submenu.text}}
+      </li>
+    </ul>
 
     </div>
-
-  
-
+</ng-template>
 </p-sidebar>
+
+
+
 
 <div class="col-2">
 <i (click)="visibleSidebar1 = true" class="pi pi-bars" style="font-size: 1.5rem"></i>
-</div>
+</div> 

@@ -16,4 +16,9 @@ export class GeneralService {
     .then(res => <ICustomer[]>res.data)
     .then(data => { return data; });
 }
+
+
+getList<T>(url: string){
+  return this.http.get<T[]>(url);
+}
 }

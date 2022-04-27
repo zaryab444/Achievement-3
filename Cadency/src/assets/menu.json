@@ -1,0 +1,12 @@
+[{
+    "text": "Dashboard",
+    "icon": "dashboard",
+    "routerLink": "/dashboard"
+},
+{
+    "text": "Customer",
+    "icon": "people",
+    "routerLink": "/customer"
+}
+
+]
