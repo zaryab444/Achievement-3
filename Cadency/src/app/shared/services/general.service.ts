@@ -18,7 +18,9 @@ export class GeneralService {
 }
 
 
-getList<T>(url: string){
-  return this.http.get<T[]>(url);
+getList<T>(){
+  return this.http.get<T[]>("/assets/menu.json");
 }
+
+
 }
