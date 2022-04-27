@@ -14,7 +14,7 @@ ul {
         display: block;
         list-style: none;
         width: 100%;
-        a{
+      
             text-decoration: none;
           color: rgb(3, 3, 3);
           padding: 10px 15px;
@@ -31,7 +31,7 @@ ul {
           &.logout{
             color: lightskyblue;
           }
-        }
+       
       }
 
     }

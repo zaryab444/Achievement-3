@@ -38,7 +38,7 @@
     </ng-container>
    
     <ng-template #parentMenu let-menu="menu">
-      <li [routerLink]="menu.routerLink" routerLinkActive="is-active" [routerLinkActiveOptions]="{exact:
+      <li (click)="visibleSidebar1 = false" style="cursor: pointer;" [routerLink]="menu.routerLink" routerLinkActive="is-active" [routerLinkActiveOptions]="{exact:
           true}">
           <i>{{menu.icon}}</i> {{menu.text}}
       </li>
@@ -48,11 +48,11 @@
 <ng-template #childMenu let-menu="menu">
   <div class="col-2">
   
-    <i (click)="visibleSidebar1 = true" style="font-size: 1.5rem">{{menu.icon}}</i>{{menu.text}}
+    <i  style="font-size: 1.5rem">{{menu.icon}}</i>{{menu.text}}
     <ul>
-      <li [routerLink]="submenu.routerLink" *ngFor="let submenu of menu.children" routerLinkActive="is-active" [routerLinkActiveOptions]="{exact:
+      <li   [routerLink]="submenu.routerLink" *ngFor="let submenu of menu.children" routerLinkActive="is-active" [routerLinkActiveOptions]="{exact:
         true}">
-        <i>{{submenu.icon}}</i> {{submenu.text}}
+        <i  >{{submenu.icon}}</i> {{submenu.text}}
       </li>
     </ul>
 

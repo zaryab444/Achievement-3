@@ -1,11 +1,11 @@
 [{
     "text": "Dashboard",
-    "icon": "dashboard",
+    "icon": "briefcase",
     "routerLink": "/dashboard"
 },
 {
     "text": "Customer",
-    "icon": "people",
+    "icon": "briefcase",
     "routerLink": "/customer"
 }
 
