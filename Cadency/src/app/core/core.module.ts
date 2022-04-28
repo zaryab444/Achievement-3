@@ -9,7 +9,8 @@ import { BreadcrumbComponent } from '@core/components/breadcrumb/breadcrumb.comp
 import { ButtonModule } from 'primeng/button';
 import { SidebarModule } from 'primeng/sidebar';
 import {MenubarModule} from 'primeng/menubar';
-
+import {BreadcrumbModule} from 'primeng/breadcrumb';
+//import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,9 @@ import {MenubarModule} from 'primeng/menubar';
     RouterModule,
     ButtonModule,
     SidebarModule,
-    MenubarModule
+    MenubarModule,
+    BreadcrumbModule,
+    //TranslateModule
     ],
   exports: [ 
     HeaderComponent,

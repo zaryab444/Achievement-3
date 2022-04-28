@@ -24,4 +24,17 @@ export class GeneralService {
    }
 
 
+    // get first menu route
+  getFirstChildRoute(menus: Array<any>) {
+    if (menus && menus.length > 0) {
+      const firsRoute = menus.find(res => menus[0].id === res?.parentId);
+      return firsRoute?.routerLink;
+    }
+    return null;
+  }
+
+  onGotoDefaultRoute(){
+    
+  }
+
 }
