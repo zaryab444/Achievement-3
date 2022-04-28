@@ -1,11 +1,16 @@
-<div fxLayout="row" class="breadcrumb p-2">
-    <a href="javascript: void(0)" class="breadcrumb-item" fxLayout="row" fxLayoutAlign="start center">
-        <i  class="pi pi-home" data-test-icon="home">home</i>
-        <span class="breadcrumb-title" [attr.data-test-span]="'BREADCRUMB.HOME' ">{{'BREADCRUMB.HOME' }}</span>
-    </a>
-    <div *ngFor="let breadcrumb of breadcrumbs; let i = index;" class="breadcrumb-item" fxLayout="row" fxLayoutAlign="start center">                 
-        <a *ngIf="i !== (breadcrumbs.length - 1) && breadcrumb.url" [routerLink]="[breadcrumb.url]" [attr.data-test-link]="breadcrumb.name ">{{breadcrumb.name }}</a>   
-        <span *ngIf="i !== (breadcrumbs.length - 1) && !breadcrumb.url" class="breadcrumb-title" [attr.data-test-span]="breadcrumb.name ">{{breadcrumb.name  }}</span>
-        <span *ngIf="i === (breadcrumbs.length - 1)" class="breadcrumb-title active" [attr.data-test-span]="breadcrumb.name ">{{breadcrumb.name  }}</span>
-    </div> 
+
+<div class="grid" >
+    <div class="col-0" class="breadcrumb-item" >
+        <a style="text-decoration: none; color: inherit;" href="javascript: void(0)" fxLayout="row" fxLayoutAlign="start center">
+            <i class="pi pi-home" data-test-icon="home"></i>
+            <span class="breadcrumb-title" [attr.data-test-span]="'BREADCRUMB.HOME' ">{{'HOME' | translate}}</span>
+        </a>
+    </div>
+    <div class="col-0" class="breadcrumb-item" *ngFor="let breadcrumb of breadcrumbs; let i = index;">
+                      
+            <a *ngIf="i !== (breadcrumbs.length - 1) && breadcrumb.url" [routerLink]="[breadcrumb.url]" [attr.data-test-link]="breadcrumb.name | translate">{{breadcrumb.name | translate}}</a>   
+            <span *ngIf="i !== (breadcrumbs.length - 1) && !breadcrumb.url" class="breadcrumb-title" [attr.data-test-span]="breadcrumb.name | translate">{{breadcrumb.name | translate }}</span>
+            <span *ngIf="i === (breadcrumbs.length - 1)" class="breadcrumb-title active" [attr.data-test-span]="breadcrumb.name | translate">{{breadcrumb.name | translate }}</span>
+       
+    </div>
 </div>

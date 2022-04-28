@@ -10,7 +10,8 @@ import { ButtonModule } from 'primeng/button';
 import { SidebarModule } from 'primeng/sidebar';
 import {MenubarModule} from 'primeng/menubar';
 import {BreadcrumbModule} from 'primeng/breadcrumb';
-//import { TranslateModule } from '@ngx-translate/core';
+import { TranslateModule } from '@ngx-translate/core';
+import {FlexLayoutModule} from "@angular/flex-layout";
 
 @NgModule({
   declarations: [
@@ -27,13 +28,16 @@ import {BreadcrumbModule} from 'primeng/breadcrumb';
     SidebarModule,
     MenubarModule,
     BreadcrumbModule,
-    //TranslateModule
+    TranslateModule,
+    TranslateModule.forRoot(),
+    FlexLayoutModule
+
     ],
   exports: [ 
     HeaderComponent,
     SideNavigationComponent,
     FooterComponent,
-    BreadcrumbComponent
+    BreadcrumbComponent,
    ]
 })
 export class CoreModule { }
