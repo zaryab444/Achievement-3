@@ -3,10 +3,16 @@
 
 // accordion icon move to right position
 .p-accordion .p-accordion-header .p-accordion-toggle-icon {
-    margin-top: -8px !important;
-       position: absolute !important;
-       right: 0.5em !important;
-       top: 50% !important;
+    margin-top: -8px ;
+       position: absolute ;
+       right: 0.5em ;
+       top: 50% ;
    }
 
- 
+   .p-accordion .p-accordion-header .p-accordion-header-link {
+    padding: 1.25rem !important;
+     border: 0px  !important;
+     color:black !important;
+    background: white !important;
+    
+}
