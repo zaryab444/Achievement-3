@@ -45,12 +45,12 @@
       </li>
   </ng-template>
 </ul>
-
+</div>
 <ng-template #childMenu let-menu="menu">
   
   
-  <p-accordion  styleClass="checkmate">
-    <p-accordionTab [header]="menu.text" [selected]="false" styleClass="someStyleClass" >
+  <p-accordion styleClass="someStyleClass" >
+    <p-accordionTab [header]="menu.text" [selected]="false"  >
     <!-- <i  style="font-size: 1.5rem; ">{{menu.icon}}</i> {{menu.text}} -->
    
     <ul>
@@ -63,7 +63,7 @@
 </p-accordion>
     
 </ng-template>
-</div>
+
 </p-sidebar>
 
 

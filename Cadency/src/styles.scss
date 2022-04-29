@@ -1,1 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
+
+
+// accordion icon move to right position
+.p-accordion .p-accordion-header .p-accordion-toggle-icon {
+    margin-top: -8px !important;
+       position: absolute !important;
+       right: 0.5em !important;
+       top: 50% !important;
+   }
+
+ 
