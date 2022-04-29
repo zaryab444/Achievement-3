@@ -12,6 +12,7 @@ import {MenubarModule} from 'primeng/menubar';
 import {BreadcrumbModule} from 'primeng/breadcrumb';
 import { TranslateModule } from '@ngx-translate/core';
 import {FlexLayoutModule} from "@angular/flex-layout";
+import {AccordionModule} from 'primeng/accordion';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import {FlexLayoutModule} from "@angular/flex-layout";
     BreadcrumbModule,
     TranslateModule,
     TranslateModule.forRoot(),
-    FlexLayoutModule
+    FlexLayoutModule,
+    AccordionModule
 
     ],
   exports: [ 
