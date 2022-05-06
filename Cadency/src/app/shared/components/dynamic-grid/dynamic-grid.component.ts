@@ -1,7 +1,8 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { GeneralService } from '@app/shared/services/general.service';
 import { Table } from 'primeng/table';
-
+import * as FileSaver from 'file-saver';
+import { saveAs } from 'file-saver';
 @Component({
   selector: 'app-dynamic-grid',
   templateUrl: './dynamic-grid.component.html',
@@ -11,6 +12,10 @@ export class DynamicGridComponent implements OnInit {
   @ViewChild('table') table: Table;
  
   getData: any[] = [];
+  gridcols: any[] = [];
+ 
+
+  @Input() data;
  
   constructor(
      public generalService: GeneralService
@@ -20,14 +25,32 @@ export class DynamicGridComponent implements OnInit {
     this.getGridApiData();
   }
 
+  ngOnChanges($event){
+    this.data = this.data;
+   
+  }
+
   getGridApiData(){
-      this.generalService.getProductsSmall().then((res: any)=>{
-          if(res){
+  
+      this.generalService.getProductsSmall().subscribe((res: any)=>{
+          if(res.data){
            
-            this.getData = res || [];
-            console.log(res);
-          }
+            this.getData = res.data || [];
+            console.log(res.data);
+             }
+          this.gridcols = res.heading || [];
+          console.log(res.heading)
       })
   }
+
+
+
+
+
+ 
+
+
+
+
 
 }

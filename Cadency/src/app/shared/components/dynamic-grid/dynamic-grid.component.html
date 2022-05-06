@@ -1,10 +1,15 @@
-<p-table #table [value]="getData">
-    <ng-template pTemplate="header">
+<p-table #table [columns]="gridcols" [value]="getData">
+    <ng-template pTemplate="caption">
+        <button type="button" pButton pRipple icon="pi pi-file-excel" 
+         class="p-button-success p-mr-2"  
+        pTooltip="XLS" tooltipPosition="bottom"></button>
+    </ng-template>
+    <ng-template  pTemplate="header" let-columns>
         <tr>
-            <th>Batch Number</th>
-            <th>UserName</th>
-            <th>Description</th>
-            <th>Status</th>
+            <th *ngFor="let col of columns">
+               {{col.field}}
+            </th>
+            
         </tr>
     </ng-template>
 

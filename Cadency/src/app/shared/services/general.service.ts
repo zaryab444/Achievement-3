@@ -12,9 +12,7 @@ export class GeneralService {
 
   getProductsSmall() {
     return this.http.get<any>('assets/products-small.json')
-    .toPromise()
-    .then(res => <ICustomer[]>res.data)
-    .then(data => { return data; });
+    
 }
 
 
