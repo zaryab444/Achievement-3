@@ -31,8 +31,10 @@ export class GeneralService {
     return null;
   }
 
-  onGotoDefaultRoute(){
-    
-  }
-
+   /**
+   * check if object empty
+   */
+    public isObjectEmpty(obj) {
+      return Object.keys(obj).length === 0;
+    }
 }

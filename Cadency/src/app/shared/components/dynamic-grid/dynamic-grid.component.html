@@ -1,9 +1,17 @@
-<p-table #table [columns]="gridcols" [value]="getData">
+<p-table #table [columns]="gridcols" [value]="getData" 	[globalFilterFields]="['name']" >
     <ng-template pTemplate="caption">
-        <button type="button" pButton pRipple icon="pi pi-file-excel" 
-         class="p-button-success p-mr-2"  
-        pTooltip="XLS" tooltipPosition="bottom"></button>
+      
+        
+        <span class="p-input-icon-left ml-auto">
+            <i class="pi pi-search"></i>
+            <input
+             pInputText type="text" 
+             (input)="table.filterGlobal(getEventValue($event), 'contains')" 
+             placeholder="Search keyword" />
+        </span>
     </ng-template>
+
+   
     <ng-template  pTemplate="header" let-columns>
         <tr>
             <th *ngFor="let col of columns">

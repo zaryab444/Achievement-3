@@ -14,7 +14,7 @@ export class DynamicGridComponent implements OnInit {
   getData: any[] = [];
   gridcols: any[] = [];
  
-
+  filterColList =[];
   @Input() data;
  
   constructor(
@@ -43,7 +43,9 @@ export class DynamicGridComponent implements OnInit {
       })
   }
 
-
+  getEventValue($event:any) :string {
+    return $event.target.value;
+  } 
 
 
 
