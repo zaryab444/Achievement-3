@@ -25,3 +25,11 @@
       height: 50px;
       border-radius: 50%;
     }
+    
+    .test:after {
+      content: '\2807';
+      font-size: 20px;
+      padding-left: 100px;
+      }
+
+    
