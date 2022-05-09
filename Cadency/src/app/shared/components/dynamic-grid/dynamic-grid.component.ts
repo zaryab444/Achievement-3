@@ -10,13 +10,14 @@ import { saveAs } from 'file-saver';
 })
 export class DynamicGridComponent implements OnInit {
   @ViewChild('table') table: Table;
- 
+  @Input() gridId: number;
   getData: any[] = [];
   gridcols: any[] = [];
- 
+  clearGlobalSearch: boolean = false;
   filterColList =['name'];
   @Input() data;
- 
+  isFilterShow: boolean = false;
+  filteredData: any[] = [];
   constructor(
      public generalService: GeneralService
   ) { }
@@ -49,10 +50,29 @@ export class DynamicGridComponent implements OnInit {
 
 
 
- 
+ /**
+   * reset date input
+   * @param dt grid reference
+   */
+  filterGrid(dt): void {
+    // this.options.isFilterShow = !this.options.isFilterShow;
+    if (!this.generalService.isObjectEmpty(dt.filters) ||
+      !this.generalService.isObjectEmpty(this.generalService.defaultGridEvent.filters)) {
+      this.generalService.gridResetDynamic$.next({isReset: false, id: this.gridId});
+    }
+    this.clearGlobalSearch = true;
+   
+    this.isFilterShow = !this.isFilterShow;
+  }
 
 
 
 
-
+ /**
+   * filter grid records
+   * @param $event grid filtered records
+   */
+  onFilter($event): void {
+    this.filteredData = $event.filteredValue;
+  }
 }

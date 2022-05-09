@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ICustomer } from '@app/features/customer/customer-interface';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -8,8 +9,13 @@ import { ICustomer } from '@app/features/customer/customer-interface';
 export class GeneralService {
 
   constructor(private http: HttpClient) { }
-
-
+  public defaultGridEvent = {
+    filters: {},
+    sort: {},
+    first: 0,
+  
+  };
+  public gridResetDynamic$: Subject<any> = new Subject();
   getProductsSmall() {
     return this.http.get<any>('assets/products-small.json')
     
