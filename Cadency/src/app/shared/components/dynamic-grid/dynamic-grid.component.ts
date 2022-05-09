@@ -14,7 +14,7 @@ export class DynamicGridComponent implements OnInit {
   getData: any[] = [];
   gridcols: any[] = [];
  
-  filterColList =[];
+  filterColList =['name'];
   @Input() data;
  
   constructor(

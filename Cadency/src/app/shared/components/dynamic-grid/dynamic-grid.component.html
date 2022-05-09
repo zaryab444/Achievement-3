@@ -1,4 +1,7 @@
-<p-table #table [columns]="gridcols" [value]="getData" 	[globalFilterFields]="['name']" >
+<p-table #table [columns]="gridcols" [value]="getData"
+
+[globalFilterFields]="filterColList"
+>
     <ng-template pTemplate="caption">
       
         

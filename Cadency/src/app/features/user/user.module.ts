@@ -4,6 +4,7 @@ import { UserRoutingModule } from './user-routing.module';
 import { UserListComponent } from './user-list/user-list.component';
 import {CardModule} from 'primeng/card';
 import { UserService } from './user.service';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { UserService } from './user.service';
   imports: [
     CommonModule,
     UserRoutingModule,
-    CardModule
+    CardModule,
+    FlexLayoutModule 
   ],
   providers:[
     UserService

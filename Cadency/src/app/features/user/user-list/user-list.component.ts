@@ -18,7 +18,7 @@ export class UserListComponent implements OnInit {
 
 
   listUsers():void{
-    this.userService.getAllUser().then((res:any)=>{
+    this.userService.getAllUser().subscribe((res:any)=>{
       if(res.data){
         this.getData = res.data || [];
         console.log(res);

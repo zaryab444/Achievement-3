@@ -1,18 +1,27 @@
 
+
 <div class="admin-page">
-    <h3>Users</h3>
-    <p-card>
-  <div class="grid col-3">
-      <p-card class="subcard" *ngFor="let user of getData">
-     
-        <div >
-            <b>{{user.name}}</b>
-            <!-- <p> <i class="pi pi-user"></i> david@yopmail.com</p>
-             <p><i class="pi pi-phone"> +9236848184</i></p>
-             <p><i class="pi pi-users"></i> Sales Teams</p> -->
-         </div>
+  <h3>Users</h3>
+  <p-card>
+<div class="grid">
+  <div class="col-2"  *ngFor="let user of getData">
+
+<p-card>
+  <div>
+    <img  class="images" [src]="user.images">
    
-      </p-card>
   </div>
-    </p-card>
+ 
+  <div>
+   <small>{{user.name}}</small><br>
+   <small>{{user.email}}</small><br>
+   <small>{{user.phone}}</small><br>
+   <small>{{user.caption}}</small>
+
+  </div>
+    
+</p-card>
+  </div>
+</div>
+  </p-card>
 </div>

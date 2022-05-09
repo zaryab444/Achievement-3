@@ -5,16 +5,17 @@ import { BaseService } from '@app/shared/services/base.service';
 @Injectable({
   providedIn: 'root'
 })
-export class UserService extends BaseService {
+export class UserService {
+  constructor(private http: HttpClient) { 
 
-  constructor(_http: HttpClient) {
-    super(_http)
-   }
+  }
 
   getAllUser(){
     const url = 'assets/users.json';
-    return this.get(url);
+    return this.http.get(url);
   }
+
+
 
   
 }
