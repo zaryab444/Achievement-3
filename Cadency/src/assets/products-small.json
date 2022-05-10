@@ -130,16 +130,24 @@
 
 	"heading": [
 		{
-		  "field": "Code"
+		  "field": "Batch Number",
+		  "field_datatype": "number",
+		  "field_match_type":"number"
 		},
 		{
-		  "field": "Code"
+		  "field": "Product Type",
+		  "field_datatype":"string",
+		  "field_match_type":"string"
 		},
 		{
-		  "field": "Code"
+		  "field": "Description",
+		  "field_datatype":"string",
+		  "field_match_type":"string"
 		},
 		{
-		  "field": "Code"
+		  "field": "Status",
+		  "field_datatype":"string",
+		  "field_match_type":"string"
 		}
 	  ]
 }

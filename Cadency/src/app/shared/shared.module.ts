@@ -7,6 +7,7 @@ import {TableModule} from 'primeng/table';
 
 
 
+
 @NgModule({
   declarations: [
   
@@ -17,8 +18,9 @@ import {TableModule} from 'primeng/table';
   ],
   imports: [
     CommonModule,
-    TableModule
+    TableModule,
   //BrowserAnimationsModule,
+
  
   ],
   exports: [

@@ -13,13 +13,15 @@ import {BreadcrumbModule} from 'primeng/breadcrumb';
 import { TranslateModule } from '@ngx-translate/core';
 import {FlexLayoutModule} from "@angular/flex-layout";
 import {AccordionModule} from 'primeng/accordion';
+import { TextFilterDirective } from './directives/text-filter.directive';
 
 @NgModule({
   declarations: [
     HeaderComponent,
     SideNavigationComponent,
     FooterComponent,
-    BreadcrumbComponent
+    BreadcrumbComponent,
+    TextFilterDirective
   ],
   imports: [
     CommonModule,
@@ -40,6 +42,7 @@ import {AccordionModule} from 'primeng/accordion';
     SideNavigationComponent,
     FooterComponent,
     BreadcrumbComponent,
+    TextFilterDirective
    ]
 })
 export class CoreModule { }

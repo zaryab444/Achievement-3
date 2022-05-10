@@ -2,19 +2,26 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ICustomer } from '@app/features/customer/customer-interface';
 import { Subject } from 'rxjs';
+import { ConfigService } from './config.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class GeneralService {
 
-  constructor(private http: HttpClient) { }
+  constructor(
+    private http: HttpClient,
+    private configService: ConfigService
+    ) { }
   public defaultGridEvent = {
     filters: {},
     sort: {},
     first: 0,
   
   };
+
+  filterInputRegex: string = this.configService.clientConfig?.FILTER_INPUT_REGEX || '^[A-z0-9-_\', ]*$';
+
   public gridResetDynamic$: Subject<any> = new Subject();
   getProductsSmall() {
     return this.http.get<any>('assets/products-small.json')
@@ -43,4 +50,22 @@ export class GeneralService {
     public isObjectEmpty(obj) {
       return Object.keys(obj).length === 0;
     }
+
+/**
+   * this calls to replace restricted characters from
+   * filter inputs
+   * @param searchTerm contains term to be searched
+   * @param regex contains regex to replace restricted strings
+   * @returns return filtered out search term
+   */
+  replaceRestrictedCharacters(searchTerm: string, regex?: string): string{
+    searchTerm = searchTerm.trim().replace(/\s\s+/g, ' ');
+    regex = regex || this.filterInputRegex;
+    const defaultRegex = regex.replace('^[', '[^').replace('*$', '');
+    searchTerm = searchTerm.replace(new RegExp(defaultRegex, 'g'), '');
+    return searchTerm;
+
+  }
+
+
 }

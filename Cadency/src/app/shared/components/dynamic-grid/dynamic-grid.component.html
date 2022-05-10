@@ -1,6 +1,6 @@
 <p-table #table [columns]="gridcols" [value]="getData"
-
-[globalFilterFields]="filterColList"   (onFilter)="onFilter($event)" 
+[globalFilterFields]="filterColList" (onFilter)="onFilter($event)" 
+(onLazyLoad)="onQuery($event)" [lazy]="true" 
 >
     <ng-template pTemplate="caption">
       
@@ -31,11 +31,15 @@
         </tr>
 
         <tr *ngIf="isFilterShow">
-         <th *ngFor="let col of columns">
-         <span>
+         <th *ngFor="let col of columns" [ngSwitch]="col.field">
+         <span *ngIf="(col.field_datatype === 'string')">
              <input
-             pInputText type="text" 
-             >
+             *ngSwitchCase="col.field" type="text"  
+              [value]="table.filters[col.field] || isFilters ? (fillFilters[col.field]?.value || $any(table).filters[col.field].value): ''"
+            (input)="onStringFilterKeyup(table, $event, col.field_name, col.field_match_type)"
+            title="{{(col.field)}}"
+            placeholder="{{(col.field)}}"
+              >
 
          </span>
          </th>

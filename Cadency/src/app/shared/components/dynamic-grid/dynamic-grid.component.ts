@@ -3,6 +3,7 @@ import { GeneralService } from '@app/shared/services/general.service';
 import { Table } from 'primeng/table';
 import * as FileSaver from 'file-saver';
 import { saveAs } from 'file-saver';
+import { Subject } from 'rxjs';
 @Component({
   selector: 'app-dynamic-grid',
   templateUrl: './dynamic-grid.component.html',
@@ -18,15 +19,30 @@ export class DynamicGridComponent implements OnInit {
   @Input() data;
   isFilterShow: boolean = false;
   filteredData: any[] = [];
+  isFilters: boolean = false;
+  fillFilters: any = {};
+  filterSearchText$: Subject<any> = new Subject<any>();
+  filter$: Subject<any> = new Subject<any>();
   constructor(
      public generalService: GeneralService
   ) { }
 
   ngOnInit(): void {
+    if(!this.generalService.isObjectEmpty(this.generalService.defaultGridEvent.filters)){
+      this.fillFilters = this.generalService.defaultGridEvent.filters;
+      this.isFilters = !this.generalService.isObjectEmpty(this.generalService.defaultGridEvent.filters)
+    }
     this.getGridApiData();
   }
 
   ngOnChanges($event){
+    if (!this.generalService.isObjectEmpty(this.generalService.defaultGridEvent.filters)) {
+      this.fillFilters = this.generalService.defaultGridEvent.filters;
+      this.isFilters = !this.generalService.isObjectEmpty(this.generalService.defaultGridEvent.filters);
+    } else {
+      this.fillFilters = {};
+      this.isFilters = false;
+    }
     this.data = this.data;
    
   }
@@ -74,5 +90,20 @@ export class DynamicGridComponent implements OnInit {
    */
   onFilter($event): void {
     this.filteredData = $event.filteredValue;
+  }
+
+  onStringFilterKeyup(dt, $event, field, type){
+    const value = this.generalService.replaceRestrictedCharacters($event.target.value);
+    if (($event.inputType === 'deleteByCut' || $event.inputType === 'deleteContentBackward') && field === 'entity_name') {
+      if (this.generalService.isObjectEmpty(dt.filters) && value.length === 0) {
+        this.generalService.defaultGridEvent.filters = {};
+        this.fillFilters = {};
+      }
+    }
+    this.filterSearchText$.next({ dt, value, field, type });
+  }
+
+  onQuery($event) {
+    this.filter$.next($event);
   }
 }
